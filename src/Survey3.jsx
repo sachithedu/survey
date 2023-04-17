@@ -15,7 +15,7 @@ function Survey3(props) {
   };
 
   // Render input fields for each question specified in Survey2
-  const inputFields = props.questions.map((question, index) => (
+  const inputFields = props.questions && props.questions.map((question, index) => (
     <div key={index}>
       <label>
         {question}:
