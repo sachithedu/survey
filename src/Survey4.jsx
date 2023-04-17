@@ -3,7 +3,7 @@ import React from 'react';
 function Survey4(props) {
   return (
     <div>
-      Your results will be emailed to {props.email}.
+      Your responses have be saved, thank you.
     </div>
   );
 }

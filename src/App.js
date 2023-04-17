@@ -8,6 +8,7 @@ function App() {
   const [currentSurvey, setCurrentSurvey] = useState(1);
   const [numQuestions, setNumQuestions] = useState(0);
   const [email, setEmail] = useState('');
+  const [surveyQuestions, setSurveyQuestions] = useState([]);
 
   const handleSurvey1Submit = (data) => {
     setNumQuestions(data.numQuestions);
