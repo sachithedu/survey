@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import MySurvey from '../surveyTypes/surveytypeone';
+import React from 'react';
+import SurveyOne from '../surveys/surveyone';
 
-const SurveyOne = ({ setCurrentSurvey }) => {
+const SurveyOne = ({setCurrentSurvey}) => {
   const [numQuestions, setNumQuestions] = useState(0);
 
   const handleComplete = (survey) => {
@@ -9,7 +9,9 @@ const SurveyOne = ({ setCurrentSurvey }) => {
     setCurrentSurvey(1);
   };
 
-  return <MySurvey onComplete={handleComplete} />;
+  return (
+    <Mysurvey handleComplete={handleComplete} setCurrentSurvey={setCurrentSurvey} />
+  );
 };
 
 export default SurveyOne;
