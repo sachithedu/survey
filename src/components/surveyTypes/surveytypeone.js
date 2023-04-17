@@ -1,13 +1,18 @@
 import React from 'react';
-import 'survey-react/survey.css';
+import { json } from '../surveys/questionOne';
 import * as Survey from 'survey-react';
-import Json from '../surveys/questionOne'
+import 'survey-react/survey.css';
 
-const Mysurvey = ()=>{
-    return (
-        <Survey.survey
-            json = {Json}
-        />
-    )
-}
+const Mysurvey = (props) => {
+  const survey = new Survey.Model(json);
+  
+  survey.onComplete.add((survey) => {
+    props.handleComplete(survey);
+  });
+
+  return (
+    <Survey.Survey model={survey} />
+  );
+};
+
 export default Mysurvey;
