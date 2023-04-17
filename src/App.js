@@ -24,7 +24,7 @@ function App() {
   };
 
   const handleSurvey3Retake = () => {
-    setCurrentSurvey(2);
+    setCurrentSurvey(3);
   };
 
   return (
