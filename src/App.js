@@ -9,6 +9,7 @@ function App() {
   const [numQuestions, setNumQuestions] = useState(0);
   const [email, setEmail] = useState('');
   const [surveyQuestions, setSurveyQuestions] = useState([]);
+  const [surveyAnswers, setSurveyAnswers] = useState([[]]);
 
   const handleSurvey1Submit = (data) => {
     setNumQuestions(data.numQuestions);
@@ -16,7 +17,8 @@ function App() {
     setCurrentSurvey(2);
   };
 
-  const handleSurvey2Submit = () => {
+  const handleSurvey2Submit = (data) => {
+    setSurveyQuestions(data.surveyQuestions);
     setCurrentSurvey(3);
   };
 
