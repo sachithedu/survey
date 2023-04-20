@@ -8,8 +8,8 @@ function App() {
   const [currentSurvey, setCurrentSurvey] = useState(1);
   const [numQuestions, setNumQuestions] = useState(0);
   const [email, setEmail] = useState('');
-  const [surveyQuestions, setSurveyQuestions] = useState([]);
-  const [surveyAnswers, setSurveyAnswers] = useState([[]]);
+  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   const handleSurvey1Submit = (data) => {
     setNumQuestions(data.numQuestions);
@@ -18,11 +18,16 @@ function App() {
   };
 
   const handleSurvey2Submit = (data) => {
-    setSurveyQuestions(data.surveyQuestions);
+    setQuestions(data);
     setCurrentSurvey(3);
   };
 
-  const handleSurvey3Submit = () => {
+  const handleSurvey3Submit = (data) => {
+    setAnswers(data.answers);
+    for(let i=0;i<numQuestions;i++){
+      let temp = data[i];
+      answers.push(temp);
+    }
     setCurrentSurvey(4);
   };
 
@@ -33,8 +38,8 @@ function App() {
   return (
     <div>
       {currentSurvey === 1 && <Survey1 onSubmit={handleSurvey1Submit} />}
-      {currentSurvey === 2 && <Survey2 numQuestions={numQuestions} onSubmit={handleSurvey2Submit} />}
-      {currentSurvey === 3 && <Survey3 numQuestions={numQuestions} onSubmit={handleSurvey3Submit} onRetake={handleSurvey3Retake} />}
+      {currentSurvey === 2 && <Survey2 numQuestions={numQuestions} questions={questions} onSubmit={handleSurvey2Submit} />}
+      {currentSurvey === 3 && <Survey3 numQuestions={numQuestions} questions={questions} answers = {answers} onSubmit={handleSurvey3Submit} onRetake={handleSurvey3Retake} />}
       {currentSurvey === 4 && <Survey4 email={email} />}
     </div>
   );

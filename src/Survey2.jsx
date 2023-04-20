@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 function Survey2(props) {
-  const [surveyQuestions, setSurveyQuestions] = useState([]);
+  const [questions, setQuestions] = useState([]);
 
   const handleQuestionChange = (event, index) => {
-    const newQuestions = [...surveyQuestions];
+    const newQuestions = [...questions];
     newQuestions[index] = event.target.value;
-    setSurveyQuestions(newQuestions);
+    setQuestions(newQuestions);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onSubmit(surveyQuestions);
+    props.onSubmit(questions);
   };
 
 
@@ -22,12 +22,7 @@ function Survey2(props) {
       <div key={i}>
         <label>
           Question {i + 1}:
-          <input type="text" value={surveyQuestions[i] || ''} onChange={(event) => {
-            handleQuestionChange(event, i);
-            const newQuestions = [...surveyQuestions];
-            newQuestions[i] = event.target.value;
-            setSurveyQuestions(newQuestions);
-          }} />
+          <input type="text" value={questions[i] || ''} onChange={(event) => handleQuestionChange(event,i)}/>
         </label>
         <br />
       </div>
