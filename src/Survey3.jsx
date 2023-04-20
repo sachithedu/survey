@@ -13,6 +13,10 @@ function Survey3(props) {
     event.preventDefault();
     props.onSubmit(answers);
   };
+  const handleRetake = (event) => {
+    event.preventDefault();
+    props.onRetake(answers);
+  };
 
   // Render input fields for each question specified in Survey2
   const inputFields = props.questions && props.questions.map((question, index) => (
@@ -26,10 +30,10 @@ function Survey3(props) {
   ));
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       {inputFields}
-      <button type="submit">Submit</button>
-      <button type="button" onClick={props.onRetake}>Retake</button>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
+      <button type="retake" onClick={handleRetake}>Retake</button>
     </form>
   );
 }

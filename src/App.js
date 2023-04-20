@@ -23,16 +23,25 @@ function App() {
   };
 
   const handleSurvey3Submit = (data) => {
-    setAnswers(data.answers);
+    const emptyAnswers = Array.from({length:data.length},()=>[]);
+    setAnswers(emptyAnswers);
+    setAnswers(answers);
     for(let i=0;i<numQuestions;i++){
       let temp = data[i];
       answers.push(temp);
     }
-    setCurrentSurvey(4);
+    setCurrentSurvey(4);//breakpoint here for debugging
   };
 
-  const handleSurvey3Retake = () => {
-    setCurrentSurvey(3);
+  const handleSurvey3Retake = (data) => {
+    const emptyAnswers = Array.from({length:data.length},()=>[]);
+    setAnswers(emptyAnswers);
+    setAnswers(answers);
+    for(let i=0;i<numQuestions;i++){
+      let temp = data[i];
+      answers.push(temp)
+    }
+    setCurrentSurvey(3); 
   };
 
   return (
