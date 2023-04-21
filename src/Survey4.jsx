@@ -3,7 +3,7 @@ import React from 'react';
 function Survey4(props) {
   return (
     <div>
-      Your responses have be saved, thank you.
+      The joint statistics will be sent to the provided email. Thank you for your time.
     </div>
   );
 }
