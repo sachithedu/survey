@@ -43,7 +43,7 @@ function App() {
       answers.push(temp)
     }
     answerProcessing(answers);
-    answers = []
+    setAnswers([]);
     setCurrentSurvey(3); 
   };
 
