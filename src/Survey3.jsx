@@ -17,7 +17,7 @@ function Survey3(props) {
     event.preventDefault();
     props.onRetake(answers);
   };
-
+  
   // Render input fields for each question specified in Survey2
   const inputFields = props.questions && props.questions.map((question, index) => (
     <div key={index}>

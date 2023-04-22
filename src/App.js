@@ -3,6 +3,7 @@ import Survey1 from './Survey1';
 import Survey2 from './Survey2';
 import Survey3 from './Survey3';
 import Survey4 from './Survey4';
+import answerProcessing from './processingAnswers';
 
 function App() {
   const [currentSurvey, setCurrentSurvey] = useState(1);
@@ -41,6 +42,8 @@ function App() {
       let temp = data[i];
       answers.push(temp)
     }
+    answerProcessing(answers);
+    answers = []
     setCurrentSurvey(3); 
   };
 
